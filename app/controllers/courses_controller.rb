@@ -12,9 +12,10 @@ class CoursesController < ApplicationController
     end
 
     def create
-        course = Course.create(course_params)
-        redirect_to course
-    end
+        @course = Course.new(course_params)
+        @course.save
+        redirect_to courses_path
+     end
 
     private
 
