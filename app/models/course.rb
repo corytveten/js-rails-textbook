@@ -3,6 +3,9 @@ class Course < ApplicationRecord
     has_many :course_textbooks
     has_many :textbooks, through: :course_textbooks
 
+    validates :code, presence: true
+    validates :title, presence: true
+
     def school_name
         self.school ? self.school.name : nil
     end

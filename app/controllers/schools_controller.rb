@@ -13,8 +13,12 @@ class SchoolsController < ApplicationController
 
   def create
     @school = School.new(school_params)
-    @school.save
-    redirect_to schools_path
+
+    if @school.save
+      redirect_to schools_path
+    else
+      render 'new'
+    end
   end
 
 private

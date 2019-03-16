@@ -14,9 +14,13 @@ class CoursesController < ApplicationController
     def create
         #@school = School.find_by(id: params[:course][:school_id])
         @course = Course.new(course_params)
-        @course.save
-        redirect_to courses_path
-     end
+        
+        if @course.save
+            redirect_to courses_path
+        else 
+            render 'new'
+        end
+    end
 
     private
 
