@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
     end
 
     def create
+        #@school = School.find_by(id: params[:course][:school_id])
         @course = Course.new(course_params)
         @course.save
         redirect_to courses_path
@@ -20,6 +21,6 @@ class CoursesController < ApplicationController
     private
 
     def course_params
-        params.require(:course).permit(:title, :code)
+        params.require(:course).permit(:title, :code, :school_name)
     end
 end
