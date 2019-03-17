@@ -1,0 +1,10 @@
+<%= form_for @textbook do |f| %>
+    <%= f.label "Course Code" %>
+    <%= f.text_field :course_ids %><br>
+    <%= f.label "Textbook Title" %>
+    <%= f.text_field :title %><br>
+    <%= f.label "Author" %>
+    <%= f.text_field :author %>
+
+    <%= f.submit %>
+<% end %>

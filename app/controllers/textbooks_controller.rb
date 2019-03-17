@@ -1,6 +1,7 @@
 class TextbooksController < ApplicationController
 
     def show
+        @course = Course.find(params[:course_id]).textbooks
         @textbook = Textbook.find(params[:id])
     end
 
@@ -17,6 +18,7 @@ class TextbooksController < ApplicationController
     end
 
     def create
+        @course = Course.find_by(id: params[:textbook][:course_id])
         @textbook = Textbook.new(textbook_params)
 
         if @textbook.save
@@ -29,7 +31,7 @@ class TextbooksController < ApplicationController
 private
 
     def textbook_params
-        params.require(:textbook).permit(:title, :author)
+        params.require(:textbook).permit(:title, :author, :course_ids)
     end
 
 end
