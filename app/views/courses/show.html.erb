@@ -2,3 +2,8 @@
 <%= @course.code %>
 <%= @course.title %></br>
 
+<h4>Textbooks</h4>
+<%= @course.textbooks.each do |textbook| %>
+    <%= link_to textbook.title, textbook_path(textbook) %>
+<% end %>
+

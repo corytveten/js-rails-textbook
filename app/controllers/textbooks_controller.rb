@@ -5,7 +5,11 @@ class TextbooksController < ApplicationController
     end
 
     def index
-        @textbooks = Textbook.all
+        if params[:course_id]
+            @textbooks = Course.find(params[:course_id]).textbooks
+        else
+            @textbooks = Textbook.all
+        end
     end
 
     def new
