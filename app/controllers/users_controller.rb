@@ -20,7 +20,7 @@ class UsersController < ApplicationController
         if logged_in?
             @user = User.find_by(id: params[:id])
         else
-            redirect_to root_url
+            redirect_to '/'
         end
     end
 

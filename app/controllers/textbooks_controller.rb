@@ -1,5 +1,5 @@
 class TextbooksController < ApplicationController
-    before_action :logged_in?
+    before_action :require_login
 
     def show
         @course = Course.find(params[:course_id]).textbooks
@@ -33,6 +33,10 @@ private
 
     def textbook_params
         params.require(:textbook).permit(:title, :author, :course_ids)
+    end
+
+    def require_login
+        return head(:forbidden) unless session.include? :user_id
     end
 
 end

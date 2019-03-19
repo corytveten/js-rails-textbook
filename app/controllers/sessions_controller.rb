@@ -5,12 +5,18 @@ class SessionsController < ApplicationController
     end
 
     def create
-        session[:username] = params[:username]
-        redirect_to '/courses'
+        @user = User.find_by(username: params[:user][:username])
+        if @user && @user.authenticate(params[:user][:password])
+            session[:user_id] = @user.id
+              redirect_to user_path(@user)
+        else
+            redirect_to signup_path
+        end
+        
     end
 
     def destroy
-        session.delete :username
+        session.clear
         redirect_to '/login'
     end
 
