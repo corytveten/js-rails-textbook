@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  get '/signin' => 'sessions#new'
-  post '/signin' => 'sessions#create'
-  get '/logout', to: 'sessions#destroy', as: 'logout'
+  get 'signup', to: 'users#new'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  post 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
+  
+  
 
   resources :users
-
-  delete 'logout' => 'sessions#destroy'
 
   resources :schools do
     resources :courses

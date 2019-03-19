@@ -11,5 +11,10 @@
 
   <body>
     <%= yield %>
+
+    <p><%= link_to 'See Courses', courses_path %></p>
+<p><%= link_to 'See Textbooks', textbooks_path %></p>
+
+<%= link_to "Log out", logout_path, method: :delete %>
   </body>
 </html>

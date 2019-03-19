@@ -1,4 +1,6 @@
 class SchoolsController < ApplicationController
+  before_action :logged_in?
+
   def show
     @school = School.find(params[:id])
   end
