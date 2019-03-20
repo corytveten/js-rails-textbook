@@ -1,6 +1,6 @@
 class TextbooksController < ApplicationController
-    before_action :require_login
-
+    before_action :logged_in?, :login_required
+    
     def show
         @course = Course.find(params[:course_id]).textbooks
         @textbook = Textbook.find(params[:id])

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users
+
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -7,8 +9,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
   
   
-
-  resources :users
 
   resources :schools do
     resources :courses
