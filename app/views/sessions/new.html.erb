@@ -5,6 +5,8 @@
     <br>
     <%= f.label :password, "Password:" %><br>
    <%= f.password_field :password %><br><br>
+
+   <p><%= link_to('Log in with Github!', '/auth/github') %></p>
    
     <%= f.submit "Sign In" %>
    <% end %>
