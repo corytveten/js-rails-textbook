@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
 
-  resources :users
-
-  get 'signup', to: 'users#new'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  post 'logout', to: 'sessions#destroy'
-  delete 'logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   
   get '/auth/github/callback', to: 'sessions#create'
+
+  resources :users
 
   resources :schools do
     resources :courses
