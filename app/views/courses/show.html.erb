@@ -3,7 +3,9 @@
 <%= @course.title %></br>
 
 <h4>Textbooks</h4>
-<%= @course.textbooks.each do |textbook| %>
-    <%= link_to textbook.title, textbook_path(textbook) %>
+<% @course.textbooks.each do |textbook| %>
+    <%= link_to textbook.title, course_textbook_path(textbook) %>
 <% end %>
 
+
+<h4><%= link_to "Add a Textbook", new_course_textbook_path(@course) %></h4>
