@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 6) do
+ActiveRecord::Schema.define(version: 7) do
 
   create_table "course_textbooks", force: :cascade do |t|
     t.integer "course_id"
     t.integer "textbook_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comment"
     t.index ["course_id"], name: "index_course_textbooks_on_course_id"
     t.index ["textbook_id"], name: "index_course_textbooks_on_textbook_id"
   end
