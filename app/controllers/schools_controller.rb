@@ -6,7 +6,7 @@ class SchoolsController < ApplicationController
   end
 
   def index
-    @schools = School.all
+    @schools = School.all.alphabetical
   end
 
   def new

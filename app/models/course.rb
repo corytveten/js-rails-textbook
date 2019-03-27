@@ -3,6 +3,8 @@ class Course < ApplicationRecord
     has_many :course_textbooks
     has_many :textbooks, through: :course_textbooks
 
+    scope :alphabetical, -> { order("code ASC") }
+
     validates :code, presence: true
     validates :title, presence: true
 

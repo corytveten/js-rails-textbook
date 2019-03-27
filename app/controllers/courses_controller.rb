@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
         if params[:school_id]
             @courses = School.find(params[:school_id]).courses
         else
-            @courses = Course.all
+            @courses = Course.all.alphabetical
         end
     end
 
