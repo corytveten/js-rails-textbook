@@ -18,12 +18,15 @@ class TextbooksController < ApplicationController
     end
 
     def new
-        @textbook = Textbook.new(course_id: params[course_id])
+        if params[:course_id] && !Course.exists?(params[:course_id])
+            redirect_to courses_path, alert: "Course not found."
+        else
+            @textbook = Textbook.new(course_ids: params[:course_id])
+        end
     end
 
     def create
         @course = Course.find_by(id: params[:textbook][:course_id])
-        raise params.inspect
         @textbook = Textbook.new(textbook_params)
 
         if @textbook.save

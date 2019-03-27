@@ -1,5 +1,7 @@
-<h3>Textbooks for:<br>
-<%= @textbook.course_ids %>
+<h3>Textbook for:
+<% @textbook.course_textbooks.each do |c_text| %>
+    <p><%= c_text.course.code %></p>
+<% end %>
 
 <%= @textbook.title %> -
 <%= @textbook.author %>

@@ -1,6 +1,12 @@
 <%= form_for @textbook do |f| %>
+    <% if @textbook.course_ids.nil? %>
+        <%= f.select :course_ids, options_from_collection_for_select(Course.all, :id, :name) %><br>
+
+        
+    <% end %>
+    
     <%= f.label "Course Code" %>
-    <%= f.text_field :course_ids %><br>
+    <%= f.text_field :course_code %><br>
     <%= f.label "Textbook Title" %>
     <%= f.text_field :title %><br>
     <%= f.label "Author" %>
