@@ -1,7 +1,11 @@
-<h3>Textbook for:
-<% @textbook.course_textbooks.each do |c_text| %>
-    <p><%= c_text.course.code %></p>
+<% if @textbook.course_ids.any? %>
+    <p>Textbook for:</p>
+    <% @textbook.course_textbooks.each do |c_text| %>
+        <p><%= c_text.course.code %>
+        <%= c_text.course.school_name %></p>
+    <% end %>
+<% else %>
+    <p>No Attached Courses</p>
 <% end %>
-
-<%= @textbook.title %> -
-<%= @textbook.author %>
+    <%= @textbook.title %> -
+    <%= @textbook.author %>

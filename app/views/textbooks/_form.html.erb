@@ -1,16 +1,31 @@
 <%= form_for @textbook do |f| %>
+
+    <% if @textbook.errors.any? %>
+        <div id="error_explanation">
+        <p>Please see following errors:</p>
+        <ul>
+            <% @textbook.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
     <% if @textbook.course_ids.nil? %>
         <%= f.select :course_ids, options_from_collection_for_select(Course.all, :id, :name) %><br>
 
         
     <% end %>
     
-    <%= f.label "Course Code" %>
-    <%= f.text_field :course_code %><br>
+    <div class="field<%= ' field_with_errors' if @textbook.errors[:title].any? %>">		
     <%= f.label "Textbook Title" %>
     <%= f.text_field :title %><br>
+
+    <div class="field<%= ' field_with_errors' if @textbook.errors[:author].any? %>">		
     <%= f.label "Author" %>
     <%= f.text_field :author %>
+    
+    <%= f.hidden_field :course_ids %>
 
     <%= f.submit %>
 <% end %>
