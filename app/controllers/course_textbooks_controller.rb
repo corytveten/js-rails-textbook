@@ -5,7 +5,7 @@ before_action :logged_in?, :login_required
         @course_textbook = CourseTextbook.new
         @course = Course.find_by(id: params[:course_id])
         @textbooks = Textbook.all
-        @course_textbook.course_id = @course.id
+        #@course_textbook.course_id = @course.id
     end
 
     def create
@@ -22,7 +22,7 @@ before_action :logged_in?, :login_required
     private
 
     def course_textbook_params
-        params.require(:course_textbook).permit(:course_id. :textbook_id, :comment)
+        params.require(:course_textbook).permit(:course_id, :textbook_id, :comment)
     end
 
 end
