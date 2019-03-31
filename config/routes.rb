@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end
   
   resources :courses do
-    resources :textbooks
+    resources :textbooks do
+      resources :course_textbooks
+    end
   end
 
   resources :textbooks do

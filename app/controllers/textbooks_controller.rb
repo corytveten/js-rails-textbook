@@ -3,7 +3,10 @@ class TextbooksController < ApplicationController
     
     def show
         if params[:course_id]
-            @textbook = Course.find(params[:course_id]).textbooks.find(params[:id])
+            #@textbook = Course.find(params[:course_id]).textbooks.find(params[:id])
+            @textbook = Textbook.find_by(id: params[:id])
+            @course = Course.find_by(id: params[:id])
+            
         else
             @textbook = Textbook.find(params[:id])
         end
