@@ -11,3 +11,12 @@
     <%= @textbook.author %>
 
 <p><%= link_to "Add Comment", new_textbook_course_textbook_path(@textbook) %><p>
+
+<h3>Comments for 
+<%= form_for @textbook.course_textbooks.each do |c_text| %>
+<%= c_text.course.code %></h3>
+
+<%= c_text.label :comment %><br>
+<%= c_text.text_field :comment %><br>
+<% end %>
+<p>e.g., "Required Text", "Supplemental Reading"<p>
