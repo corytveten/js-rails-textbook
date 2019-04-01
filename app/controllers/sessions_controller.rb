@@ -23,27 +23,6 @@ class SessionsController < ApplicationController
   			end
   		end
     end
-      #  @user = User.find_by(username: params[:user][:username])
-      #  if @user && @user.authenticate(params[:user][:password])
-      #      session[:user_id] = @user.id
-      #      redirect_to user_path(@user)
-      #  else
-      #      flash[:message] = "Your username or password was incorrect."
-      #      redirect_to signup_path
-      #  end
-    
-
-  #  def create_from_github
-      #  @user = User.new do |u|
-      #      u.uid = auth['uid']
-      #      u.username = auth['info']['username']
-      #      u.email = auth['info']['email']
-      #    end
-       
-      #    session[:user_id] = @user.id
-          
-      #    redirect_to user_path(@user)
-      #  end
 
     def destroy
         session.clear
