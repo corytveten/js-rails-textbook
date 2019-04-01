@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
 
     def show
         @course = Course.find(params[:id])
+        
     end
 
     def index
@@ -30,6 +31,6 @@ class CoursesController < ApplicationController
     private
 
     def course_params
-        params.require(:course).permit(:title, :code, :school_name)
+        params.require(:course).permit(:title, :code, :school_name, :school_id)
     end
 end

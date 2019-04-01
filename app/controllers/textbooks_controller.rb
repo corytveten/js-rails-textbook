@@ -4,6 +4,7 @@ class TextbooksController < ApplicationController
     def show
         if params[:course_id]
             @textbook = Course.find(params[:course_id]).textbooks.find(params[:id])
+            @course = Course.find(params[:course_id])
         else
             @textbook = Textbook.find(params[:id])
         end
@@ -12,6 +13,7 @@ class TextbooksController < ApplicationController
     def index
         if params[:course_id]
             @textbooks = Course.find(params[:course_id]).textbooks
+            @course = Course.find(params[:course_id])
         else
             @textbooks = Textbook.all
         end
