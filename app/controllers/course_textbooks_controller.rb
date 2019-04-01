@@ -13,11 +13,10 @@ before_action :logged_in?, :login_required
     def create
         #@course = Course.find_by(id: params[:course_id])
         #@course = Textbook.find(params[:textbook_id]).course_ids
-        @course = Course.find_by(id: params[:textbook][:course_id])
+        @course = Course.find_by(id: params[:course_id])
         @textbook = Textbook.find_by(id: params[:textbook_id])
-        raise params.inspect
         @course_textbook = @textbook.course_textbooks.new(course_textbook_params)
-        raise params.inspect
+        #raise params.inspect
         if @course_textbook.save
             redirect_to course_path(@course)
         else
