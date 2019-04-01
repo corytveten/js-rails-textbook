@@ -1,10 +1,10 @@
 <h3><%= @course.school_name %></h3>
-<%= @course.code %>
-<%= @course.title %></br>
+<h4><%= @course.code %>
+<%= @course.title %></h4>
 
 <h4>Textbooks</h4>
 <% @course.textbooks.each do |textbook| %>
-    <%= link_to textbook.title, course_textbook_path(textbook) %><br>
+    <%= link_to textbook.title, course_textbook_path(@course, textbook) %><br>
 <% end %>
 
 <h4>Comments</h4>
