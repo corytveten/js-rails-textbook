@@ -3,7 +3,8 @@ class TextbooksController < ApplicationController
     
     def show
         if params[:course_id]
-            @textbook = Course.find(params[:course_id]).textbooks.find(params[:id])
+            #@textbook = Course.find(params[:course_id]).textbooks.find(params[:id])
+            @textbook = Textbook.find(params[:id])
             @course = Course.find(params[:course_id])
         else
             @textbook = Textbook.find(params[:id])
@@ -32,7 +33,7 @@ class TextbooksController < ApplicationController
         @textbook = Textbook.new(textbook_params)
 
         if @textbook.save
-            redirect_to textbooks_path
+            redirect_to textbooks_path(@textbook)
         else
             render 'new'
         end

@@ -3,6 +3,8 @@ class CoursesController < ApplicationController
 
     def show
         @course = Course.find(params[:id])
+        @textbooks = Textbook.all
+        #raise params.inspect
         
     end
 

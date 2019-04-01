@@ -4,12 +4,13 @@
 
 <h4>Textbooks</h4>
 <% @course.textbooks.each do |textbook| %>
-    <%= link_to textbook.title, course_textbook_path(textbook) %>
+    <%= link_to textbook.title, course_textbook_path(textbook) %><br>
 <% end %>
 
 <h4>Comments</h4>
 <% @course.course_textbooks.each do |textbook| %>
-    <%= textbook.comment %>
+    <%= textbook.textbook.title %>
+    <%= textbook.comment %><br>
 <% end %>
 
 
