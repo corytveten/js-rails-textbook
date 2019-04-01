@@ -11,3 +11,4 @@
     <%= @textbook.author %>
 
 <p><%= link_to "Add Comment", new_course_textbook_course_textbook_path(:course_id => @textbook.course_ids, :textbook_id => @textbook.id) %><p>
+<p><%= link_to "Edit Textbook", edit_textbook_path(@textbook) %></p>

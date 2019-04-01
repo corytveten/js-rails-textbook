@@ -39,6 +39,16 @@ class TextbooksController < ApplicationController
         end
     end
 
+    def edit
+        @textbook = Textbook.find(params[:id])
+    end
+
+    def update
+		@textbook = Textbook.find_by(id: params[:id])
+		@textbook.update(textbook_params)
+		redirect_to textbooks_path(@textbook)
+	end
+
 private
 
     def textbook_params
