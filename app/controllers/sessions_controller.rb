@@ -13,14 +13,17 @@ class SessionsController < ApplicationController
             u.password= SecureRandom.hex
             end
         	login
-        else
+        elsif
   			@user = User.find_by(username: params[:user][:username])
   			if @user && @user.authenticate(params[:user][:password])
   				login
   			else
-  				flash[:alert] = "Please make sure you have logged in correctly. If you do not have a login, please create a new account."
+  				#flash[:alert] = "Please make sure you have logged in correctly. If you do not have a login, please create a new account."
   				render 'new'
-  			end
+              end
+        else
+            @user = User.new
+            render 'new'
   		end
     end
 
