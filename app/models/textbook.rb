@@ -6,5 +6,6 @@ class Textbook < ApplicationRecord
 
     validates :title, presence: true
     validates :author, presence: true
+    validates :courses, presence: true
 
 end

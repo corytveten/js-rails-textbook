@@ -33,7 +33,7 @@ class TextbooksController < ApplicationController
         @textbook = Textbook.new(textbook_params)
 
         if @textbook.save
-            redirect_to textbooks_path(@textbook)
+            redirect_to textbook_path(@textbook)
         else
             render 'new'
         end
@@ -46,7 +46,7 @@ class TextbooksController < ApplicationController
     def update
 		@textbook = Textbook.find_by(id: params[:id])
 		@textbook.update(textbook_params)
-		redirect_to textbooks_path(@textbook)
+		redirect_to textbook_path(@textbook)
 	end
 
 private

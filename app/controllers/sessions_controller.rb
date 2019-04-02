@@ -14,12 +14,12 @@ class SessionsController < ApplicationController
             end
         	login
         else
-  			@user = User.find_by(name: params[:user][:name])
+  			@user = User.find_by(username: params[:user][:username])
   			if @user && @user.authenticate(params[:user][:password])
   				login
   			else
   				flash[:alert] = "Please make sure you have logged in correctly. If you do not have a login, please create a new account."
-  				redirect_to signup_path
+  				render 'new'
   			end
   		end
     end
