@@ -1,7 +1,7 @@
 <h3>Comments</h3>
 <p>e.g., "Required Text", "Supplemental Reading"<p>
 
-<%= form_for @course_textbook, url: course_textbook_course_textbooks_url(@course_textbook, :course_id => @course.id, :textbook_id => @textbook.id) do |f| %>
+<%= form_for @course_textbook, url: textbook_course_textbooks_url(@course_textbook, :textbook_id => @textbook.id) do |f| %>
 
     <% if @course_textbook.errors.any? %>
       <div id="error_explanation">
