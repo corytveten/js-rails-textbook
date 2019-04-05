@@ -1,0 +1,24 @@
+<h3>Comments</h3>
+<p>e.g., "Required Text", "Supplemental Reading"<p>
+
+<%= form_for @course_textbook, url_for(:controller => 'course_textbooks', :action => 'update') do |f| %>
+
+    <% if @course_textbook.errors.any? %>
+      <div id="error_explanation">
+        <p>Please see following errors:</p>
+        <ul>
+          <% @course_textbook.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      
+      <div class="field<%= ' field_with_errors' if @course_textbook.errors[:comments].any? %>">	
+      <%= f.label :comment %><br>
+      <%= f.text_field :comment %><br><br>
+      </div>
+      
+      <%= f.submit "Add Comment" %>
+      
+      <% end %>

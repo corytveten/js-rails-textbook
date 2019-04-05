@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   resources :courses do
     resources :textbooks do
-      resources :course_textbooks, only: [:new, :create]
+      resources :course_textbooks, only: [:new, :create, :edit, :update]
     end
   end
 

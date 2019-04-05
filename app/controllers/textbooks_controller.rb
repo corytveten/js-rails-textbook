@@ -33,6 +33,7 @@ class TextbooksController < ApplicationController
         @textbook = Textbook.new(textbook_params)
 
         if @textbook.save
+            @course_textbook = CourseTextbook.create(course_id: params[:course_id], textbook_id: @textbook.id)
             redirect_to textbook_path(@textbook)
         else
             render 'new'
@@ -53,6 +54,10 @@ private
 
     def textbook_params
         params.require(:textbook).permit(:title, :author, :course_ids)
+    end
+
+    def course_textbook_params
+        params.require(:course_textbook).permit(:course_id, :textbook_id, :comment)
     end
 
     def require_login
