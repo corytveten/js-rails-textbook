@@ -30,7 +30,7 @@ class TextbooksController < ApplicationController
     end
 
     def create
-        #@course = Course.find(params[:course_id])
+        @course = Course.find(params[:course_id])
         @textbook = Textbook.new(textbook_params)
 
         if @textbook.save
@@ -45,7 +45,8 @@ class TextbooksController < ApplicationController
     end
 
     def update
-		@textbook = Textbook.find_by(id: params[:id])
+        @textbook = Textbook.find_by(id: params[:id])
+        @course = Course.find_by(id: params[:id])
 		@textbook.update(textbook_params)
 		redirect_to textbook_path(@textbook)
 	end

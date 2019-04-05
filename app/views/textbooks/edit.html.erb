@@ -1,3 +1,32 @@
 <h3>Edit Textbook</h3>
 
-<%= render 'form' %>
+<%= form_for @textbook do |f| %>
+
+    <% if @textbook.errors.any? %>
+        <div id="error_explanation">
+        <p>Please see following errors:</p>
+        <ul>
+            <% @textbook.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    
+    <div class="field<%= ' field_with_errors' if @textbook.errors[:course].any? %>">	
+    <%= f.label "Course" %>
+    <%= f.select :course_ids, options_from_collection_for_select(Course.all, :id, :title) %><br>
+    
+    <div class="field<%= ' field_with_errors' if @textbook.errors[:title].any? %>">		
+    <%= f.label "Textbook Title" %>
+    <%= f.text_field :title %><br>
+
+    <div class="field<%= ' field_with_errors' if @textbook.errors[:author].any? %>">		
+    <%= f.label "Author" %>
+    <%= f.text_field :author %>
+    
+    
+
+    <%= f.submit %>
+<% end %>
