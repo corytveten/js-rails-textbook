@@ -7,6 +7,7 @@
     <%= link_to textbook.title, course_textbook_path(@course, textbook) %><br>
 <% end %>
 
+
 <h4>Comments</h4>
 <% @course.course_textbooks.each do |textbook| %>
     <%= textbook.textbook.title %>

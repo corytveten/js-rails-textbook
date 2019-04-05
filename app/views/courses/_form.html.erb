@@ -12,9 +12,6 @@
             </ul>
         </div>
     <% end %>
-
-    <!-- <p>School:</p>
-    <%= f.collection_check_boxes(:school_id, School.all, :id, :name) %> -->
     
     <div class="field<%= ' field_with_errors' if @course.errors[:school_name].any? %>">
     <%= f.label "School Name" %>

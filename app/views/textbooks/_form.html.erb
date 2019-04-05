@@ -11,11 +11,10 @@
         </div>
     <% end %>
 
-    <% if @textbook.course_ids.nil? %>
-        <%= f.select :course_ids, options_from_collection_for_select(Course.all, :id, :name) %><br>
-
-        
-    <% end %>
+    
+    <div class="field<%= ' field_with_errors' if @textbook.errors[:course].any? %>">	
+    <%= f.label "Course" %>
+    <%= f.select :course_ids, options_from_collection_for_select(Course.all, :id, :title) %><br>
     
     <div class="field<%= ' field_with_errors' if @textbook.errors[:title].any? %>">		
     <%= f.label "Textbook Title" %>
