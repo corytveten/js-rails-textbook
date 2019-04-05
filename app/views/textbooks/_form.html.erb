@@ -11,7 +11,8 @@
         </div>
     <% end %>
 
-    
+    <!-- <%= f.hidden_field :course_ids %> -->
+
     <div class="field<%= ' field_with_errors' if @textbook.errors[:course].any? %>">	
     <%= f.label "Course" %>
     <%= f.select :course_ids, options_from_collection_for_select(Course.all, :id, :title) %><br>
@@ -24,7 +25,7 @@
     <%= f.label "Author" %>
     <%= f.text_field :author %>
     
-    <%= f.hidden_field :course_ids %>
+  
 
     <%= f.submit %>
 <% end %>
