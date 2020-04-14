@@ -5,6 +5,12 @@ class SchoolsController < ApplicationController
     @school = School.find(params[:id])
   end
 
+  def mycourses
+    @school = School.find_by_id(params[:id])
+    @courses = @school.courses
+    #raise params.inspect
+  end
+
   def index
     @schools = School.all.alphabetical
   end

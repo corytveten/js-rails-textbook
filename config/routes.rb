@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   
   get '/auth/github/callback', to: 'sessions#create'
 
+  get '/schools/:id/mycourses', to: 'schools#mycourses'
+
   resources :users
 
   resources :schools do

@@ -17,6 +17,7 @@ before_action :logged_in?, :login_required
         @course_textbook.course_id = @course.id
         #raise params.inspect
         if @course_textbook.save
+            raise params.inspect
             redirect_to course_path(@course)
         else
             render 'new'
