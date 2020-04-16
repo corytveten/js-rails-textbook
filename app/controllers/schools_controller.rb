@@ -2,7 +2,12 @@ class SchoolsController < ApplicationController
   before_action :logged_in?, :login_required
 
   def show
-    @school = School.find(params[:id])
+    school = School.find_by(id: params[:id])
+    if school
+      render json: {id: school.id, name: school.name}
+    else
+      render json: { message: 'Bird not found' }
+    end  
   end
 
   def mycourses
@@ -13,7 +18,7 @@ class SchoolsController < ApplicationController
 
   def index
     schools = School.all.alphabetical
-    render json: schools
+    render json: schools, only: [:id, :name]
   end
 
   def new
