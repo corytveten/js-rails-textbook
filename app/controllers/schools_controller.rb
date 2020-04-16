@@ -6,7 +6,7 @@ class SchoolsController < ApplicationController
     if school
       render json: {id: school.id, name: school.name}
     else
-      render json: { message: 'Bird not found' }
+      render json: { message: 'School not found' }
     end  
   end
 

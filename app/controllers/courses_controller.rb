@@ -10,9 +10,11 @@ class CoursesController < ApplicationController
 
     def index
         if params[:school_id]
-            @courses = School.find(params[:school_id]).courses
+            courses = School.find(params[:school_id]).courses
+            render json: courses
         else
-            @courses = Course.all.alphabetical
+            courses = Course.all.alphabetical
+            render json: courses, only: [:id, :title, :code, :school_id]
         end
     end
 
