@@ -12,7 +12,8 @@ class SchoolsController < ApplicationController
   end
 
   def index
-    @schools = School.all.alphabetical
+    schools = School.all.alphabetical
+    render json: schools
   end
 
   def new
